@@ -184,10 +184,30 @@ public class DemocraticAIServer extends Thread
         if (!"true".equals(System.getProperty("test.skip.wait")))
             trainFromGitHub();
 
+        // Train on /configuration/training/ JSON files and save weights to /training/weights/
+        try
+        {
+            ai.training.ConfigurationTrainer configTrainer = new ai.training.ConfigurationTrainer();
+            configTrainer.trainAll();
+            System.out.println("[DemocraticAIServer] Configuration training complete — weights in /training/weights/");
+        }
+        catch (Exception e)
+        {
+            System.out.println("[DemocraticAIServer] Configuration training deferred: " + e.getMessage());
+        }
+
         // Initialize AI speculator (graceful if native libs can't extract)
         try
         {
             speculator = new TaxDefenseSpeculator();
+
+            // Attempt to load trained weights from /training/weights/knowledge-model/
+            Path knowledgeWeights = Paths.get("training/weights/knowledge-model");
+            if (Files.isDirectory(knowledgeWeights))
+            {
+                speculator.loadModel(knowledgeWeights);
+                System.out.println("[DemocraticAIServer] Speculator loaded trained weights from: " + knowledgeWeights);
+            }
         }
         catch (Exception e)
         {
