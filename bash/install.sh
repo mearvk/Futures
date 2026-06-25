@@ -22,8 +22,24 @@ echo "       Java $JAVA_VER ✓"
 
 echo ""
 echo "[2/7] Verifying jar dependencies..."
+mkdir -p "$PROJECT_DIR/jars"
 MISSING=0
 JARS="api-0.31.0.jar pytorch-engine-0.31.0.jar pytorch-native-cpu-2.5.1-linux-x86_64.jar pytorch-model-zoo-0.31.0.jar model-zoo-0.31.0.jar basicdataset-0.31.0.jar tokenizers-0.31.0.jar jna-5.14.0.jar commons-compress-1.26.1.jar gson-2.11.0.jar slf4j-api-2.0.12.jar slf4j-simple-2.0.12.jar"
+
+# Offer to download pytorch-native-cpu if missing
+PYTORCH_JAR="pytorch-native-cpu-2.5.1-linux-x86_64.jar"
+if [ ! -f "$PROJECT_DIR/jars/$PYTORCH_JAR" ]; then
+    echo "       $PYTORCH_JAR not found."
+    read -p "       Download from Maven Central? [Y/n] " REPLY
+    REPLY=${REPLY:-Y}
+    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+        echo "       Downloading $PYTORCH_JAR (~109MB)..."
+        curl -fSL -o "$PROJECT_DIR/jars/$PYTORCH_JAR" \
+            "https://repo1.maven.org/maven2/ai/djl/pytorch/pytorch-native-cpu/2.5.1/pytorch-native-cpu-2.5.1-linux-x86_64.jar"
+        echo "       Downloaded ✓"
+    fi
+fi
+
 for JAR in $JARS; do
     if [ ! -f "$PROJECT_DIR/jars/$JAR" ]; then
         echo "       MISSING: jars/$JAR"

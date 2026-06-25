@@ -4,6 +4,7 @@
 # D500 Democratic President
 
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$PROJECT_DIR"
 CLASSPATH="$PROJECT_DIR/source:$PROJECT_DIR/jars/*"
 
 echo "═══════════════════════════════════════════════════════════════"
