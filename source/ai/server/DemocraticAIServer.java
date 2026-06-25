@@ -394,6 +394,7 @@ public class DemocraticAIServer extends Thread
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             int paragraphCount = 0;
             String line;
+            pro.national.CoolingCircuit coolingCircuit = new pro.national.CoolingCircuit();
 
             while ((line = reader.readLine()) != null && paragraphCount < MAX_PARAGRAPHS)
             {
@@ -403,13 +404,24 @@ public class DemocraticAIServer extends Thread
                 paragraphCount++;
                 String response = processRequest(line);
 
-                // If Hardware and Strikes™ is loaded, let it advise on strange/opponent queries
-                if (hardwareAndStrikes != null && hardwareAndStrikes.isLoaded()
-                    && looksLikeOpponent(line))
+                // If Hardware and Strikes™ is loaded, score this message
+                double msgScore = 0.01;
+                if (hardwareAndStrikes != null && hardwareAndStrikes.isLoaded())
                 {
-                    String advice = hardwareAndStrikes.evaluate(
-                        "unknown", "unknown", line, "", "session ip=" + ip);
-                    response += "\r\n[BLACKBELT ADVISORY] " + advice;
+                    msgScore = hardwareAndStrikes.modulateScore(line);
+
+                    if (looksLikeOpponent(line))
+                    {
+                        String advice = hardwareAndStrikes.evaluate(
+                            "unknown", "unknown", line, "", "session ip=" + ip);
+                        response += "\r\n[BLACKBELT ADVISORY] " + advice;
+                    }
+                }
+
+                // Cooling circuit: activate on HIGH/CRITICAL (score >= 50)
+                if (coolingCircuit.shouldActivate(msgScore))
+                {
+                    response = coolingCircuit.cool(response, msgScore).join();
                 }
 
                 out.write(response);

@@ -144,8 +144,11 @@ test_result $([ -f "$PROJECT_DIR/jars/api-0.31.0.jar" ] && echo 0 || echo 1) \
     "DJL api-0.31.0.jar"
 test_result $([ -f "$PROJECT_DIR/jars/pytorch-engine-0.31.0.jar" ] && echo 0 || echo 1) \
     "pytorch-engine-0.31.0.jar"
-test_result $([ -f "$PROJECT_DIR/jars/pytorch-native-cpu-2.5.1-linux-x86_64.jar" ] && echo 0 || echo 1) \
-    "pytorch-native-cpu (109MB)"
+if [ -f "$PROJECT_DIR/jars/pytorch-native-cpu-2.5.1-linux-x86_64.jar" ]; then
+    test_result 0 "pytorch-native-cpu (runtime, 109MB)"
+else
+    echo "  ⚠ WARN: pytorch-native-cpu not present (runtime only, download separately)"
+fi
 test_result $([ -f "$PROJECT_DIR/jars/tokenizers-0.31.0.jar" ] && echo 0 || echo 1) \
     "tokenizers-0.31.0.jar"
 test_result $([ -f "$PROJECT_DIR/jars/gson-2.11.0.jar" ] && echo 0 || echo 1) \

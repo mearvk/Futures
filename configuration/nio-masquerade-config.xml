@@ -5,7 +5,7 @@
     Installed: MEARVK LLC - Max Rupplin
 -->
 <nio-masquerade-config>
-    <enabled>true</enabled>
+    <enabled>false</enabled>
     <port-range-mode>standard</port-range-mode>
     <ip-range-start>127.0.0.1</ip-range-start>
     <ip-range-end>127.0.0.17</ip-range-end>
