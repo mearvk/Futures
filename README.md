@@ -3,6 +3,106 @@ Look at Java™ Futures and Implementations
 
 D500 a Democratic President - Max Rupplin - A9000 Clear
 
+## Moral Guidings & Priorities
+
+This project is built on the principle that concurrent systems must embody democratic values. Every thread of execution, every connection, every decision carries moral weight.
+
+**Core Moral Priorities:**
+1. Transparency — no hidden state, no secret processing, all futures visible
+2. Equal Representation — every citizen-connection receives equal resources
+3. Due Process — no judgment without orderly, sequential steps
+4. Accountability — every failure is reported, every exception handled
+5. Protection of the Vulnerable — hostile actors dismissed, sane/liberal persons served
+6. Rule of Law — `exceptionally()` — no process is above the law
+7. Peaceful Transfer — graceful shutdown, graceful handoff, no corruption of state
+
+**Operational Guidings:**
+- The AI learns from geo-location and IQ — it adapts to serve intelligently
+- Hostile or unfunny connections are told: "Contact your Local Senator"
+- Sane, liberal persons enter agreement and receive up to 3800 paragraphs of information
+- All data trained from democratic documents and the controlled GitHub server
+- Port 5000 opens only after a secure random wait — patience is a virtue of democracy
+
+## Protective Procedural & Processing Structure
+
+The `/source/pro/national/` package implements a protective processing pipeline using the best patterns from the Java `Future` class — applying them as classful, principled infrastructure for national defense of democratic data.
+
+| # | Class | Future Pattern | Protective Role |
+|---|-------|----------------|-----------------|
+| 01 | `ConnectionGuard.java` | `CompletableFuture.supplyAsync()` | Non-blocking intake — accept and classify without stalling |
+| 02 | `DueProcessPipeline.java` | `thenCompose()` | Sequential verification stages — no step skipped |
+| 03 | `ParallelVetting.java` | `thenCombine()` | Geo + IQ + Profile resolved in parallel, combined for judgment |
+| 04 | `ConsentGate.java` | `allOf()` | All checks must pass before agreement is entered |
+| 05 | `EjectionFuture.java` | `exceptionally()` | Any failure triggers immediate dismissal — rule of law |
+| 06 | `ResponseDispatcher.java` | `thenApplyAsync()` | Async response formatting (CSV/XML) on dedicated executor |
+| 07 | `GracefulTransfer.java` | `shutdown()` + new pool | Connection lifecycle — clean release, budget reclaimed |
+| 08 | `LearningAccumulator.java` | `handle()` | Every connection outcome (success or dismiss) teaches the AI |
+
+**Architecture:**
+
+```
+[Port 5000: Democratic ProFront National 1.0]
+         │
+         ▼
+  ConnectionGuard.supplyAsync(accept)
+         │
+         ├──► ParallelVetting.thenCombine(geo, iq, profile)
+         │
+         ▼
+  DueProcessPipeline.thenCompose(classify → verify → agree)
+         │
+         ├── FAIL ──► EjectionFuture.exceptionally("Contact your Local Senator")
+         │
+         ▼ PASS
+  ConsentGate.allOf(sane, liberal, non-hostile)
+         │
+         ▼
+  ResponseDispatcher.thenApplyAsync(serve knowledge, CSV/XML)
+         │
+         ▼
+  LearningAccumulator.handle(learn from geo + IQ + outcome)
+         │
+         ▼
+  GracefulTransfer.shutdown(release, reclaim budget)
+```
+
+## AI Module — Tax Defense Speculation
+
+The AI module (`source/ai/`) uses DJL 0.31.0 with PyTorch to speculate on INT defense for and with the US Government for tax purposes and tax closures.
+
+| Component | Description |
+|-----------|-------------|
+| `TaxDefenseSpeculator.java` | Core neural network (8→64→32→4) for tax closure prediction |
+| `TaxClosureTrainer.java` | Trains on historical INT closure data |
+| `DefenseStrategyTrainer.java` | Trains defense strategy outcomes |
+| `DemocraticAIServer.java` | Port 5000 integrated server — trains, profiles, serves |
+
+## Hardware and Strikes™ — Second Military Module
+
+Loads **only** after 6 months cumulative server uptime. Trained from BlackBelt™ defensive data (`github.com/mearvk/Java.Web.Server.Telnet.Front.Java.21/tree/main/black.belt/sharp`).
+
+- Four-Pillar evaluation: Legitimacy (20%), Conduct (30%), Ethics (30%), Law (20%)
+- US Government controls: Castle Doctrine, Stand Your Ground, UCMJ Art. 92/107
+- Prophecy™ controls: no offensive capability, defensive assessment only
+- `modulateScore()`: latent hostility scoring (0.01 = safe, 100 = hostile)
+- Communicates with Democratic AI — both modules see same input, BlackBelt advises on strange/opponent connections
+
+## Security
+
+- AI will not disclose its nature, internal files, or architecture
+- Security probe filter blocks all system/identity queries
+- RSA-2048+ encryption and Diffie-Hellman 2048-bit key exchange available
+- Outbound port awareness: 80, 443, 25, 22, 21 monitored
+- PKS/SSL certs and cookies stored, auto-deleted after 19 days
+- Integrity checking: SHA-256 baseline of 16 critical files
+- GitHub commit verification with hostile attempt logging
+- Safety ledger: every connection scored, stored as Days-into-time
+- Counseled linearly (score/100) and exponentially (e^(score/20))
+
+## 44H — Proof of Living Consciousness
+
+D44/N44 — University of North Carolina at Chapel Hill. The 44H document at `github.com/mearvk/Senior.Senate.Attorney.E44Hrs/blob/main/44H` is proof of One Contract. Stored in secondary database `pledge_44h` with safety validation (rejects executables, scripts, SQL).
+
 ## Examples
 
 | # | File | Concept |
@@ -54,28 +154,39 @@ Each file demonstrates how Java Futures embody a democratic principle.
 | 09 | `/source/democratic/d500/PeacefulTransfer.java` | Peaceful Transfer of Power | `shutdown()` + new executor — graceful handoff |
 | 10 | `/source/democratic/d500/FreeSpeech.java` | Free Speech | Parallel futures — all voices processed, none suppressed |
 
+## Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `install.sh` | Full 7-step installation |
+| `start.sh` | Start server (kills existing port 5000 process) |
+| `shutdown.sh` | Stop server (PID + port sweep) |
+| `test.sh` | 86-test evaluative suite (9 sections) |
+| `dump.sh` | MySQL database dump |
+| `fetch-44h.sh` | Fetch and store 44H pledge document |
+| `integrity.sh` | SHA-256 tamper detection |
+| `verify.sh` | GitHub commit authenticity + hostile attempt logging |
+
 ## Running
 
-Each example is a standalone class with a `main` method:
-
 ```bash
-cd source/examples/example001
-javac BasicFutureGet.java && java BasicFutureGet
-```
+# Install
+bash install.sh
 
-For lessons, compare before and after:
+# Start (waits 2-3 min secure random, then opens port 5000)
+bash start.sh
 
-```bash
-cd lessons/lesson01
-javac Before.java && java Before
-javac After.java && java After
-```
+# Test (86 tests)
+bash test.sh
 
-For democratic principles:
+# Stop
+bash shutdown.sh
 
-```bash
-cd source/democratic/d500
-javac Transparency.java && java Transparency
+# Verify authenticity against GitHub
+bash verify.sh
+
+# Check integrity
+bash integrity.sh
 ```
 
 ## Progression
@@ -87,3 +198,6 @@ javac Transparency.java && java Transparency
 5. **Examples 11–12**: Executor pool strategies and async stage control
 6. **Lessons 01–10**: Code beautification — before/after refactoring patterns
 7. **Democratic 01–10**: How concurrency patterns protect and embody democratic values
+8. **Pro/National 01–08**: Protective procedural pipeline — Java Futures as national defense
+9. **AI Module**: DJL/PyTorch tax defense speculation + democratic Q&A
+10. **Hardware and Strikes™**: Second military module (6-month activation)
