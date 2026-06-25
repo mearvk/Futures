@@ -15,6 +15,14 @@
         <persists-across-shutdowns>true</persists-across-shutdowns>
     </activation>
 
+    <training-trigger>
+        <!-- When to train: startup, script, both -->
+        <train-on-startup>true</train-on-startup>
+        <train-on-script>true</train-on-script>
+        <save-weights-to-mysql>true</save-weights-to-mysql>
+        <mysql-table>model_weights</mysql-table>
+    </training-trigger>
+
     <training-source>
         <repository>github.com/mearvk/Java.Web.Server.Telnet.Front.Java.21</repository>
         <path>black.belt/sharp/</path>

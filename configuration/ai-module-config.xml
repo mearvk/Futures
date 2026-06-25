@@ -39,6 +39,22 @@
         </trainer>
     </trainers>
 
+    <training-trigger>
+        <!-- When to train: startup, script, both -->
+        <democratic-ai mode="both">
+            <train-on-startup>true</train-on-startup>
+            <train-on-script>true</train-on-script>
+            <save-weights-to-mysql>true</save-weights-to-mysql>
+            <mysql-table>model_weights</mysql-table>
+        </democratic-ai>
+        <blackbelt mode="both">
+            <train-on-startup>true</train-on-startup>
+            <train-on-script>true</train-on-script>
+            <save-weights-to-mysql>true</save-weights-to-mysql>
+            <mysql-table>model_weights</mysql-table>
+        </blackbelt>
+    </training-trigger>
+
     <connection-banner>Democratic ProFront National 1.0</connection-banner>
 
     <capabilities>

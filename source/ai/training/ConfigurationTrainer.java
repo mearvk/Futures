@@ -53,19 +53,48 @@ public class ConfigurationTrainer
     private static final int BATCH_SIZE = 4;
     private static final float LEARNING_RATE = 0.001f;
 
+    private final boolean persistToMySQL;
+    private final String trainModule; // null = all, "blackbelt" = ethics only, "democratic" = knowledge+preference
+
+    public ConfigurationTrainer()
+    {
+        this.persistToMySQL = shouldPersistToMySQL();
+        this.trainModule = System.getProperty("train.module"); // null, "blackbelt", or "democratic"
+    }
+
     public static void main(String[] args) throws Exception
     {
         ConfigurationTrainer trainer = new ConfigurationTrainer();
         trainer.trainAll();
     }
 
+    private boolean shouldPersistToMySQL()
+    {
+        try
+        {
+            Path configFile = Paths.get("configuration/ai-module-config.xml");
+            if (Files.exists(configFile))
+            {
+                String xml = Files.readString(configFile);
+                return xml.contains("<save-weights-to-mysql>true</save-weights-to-mysql>");
+            }
+        }
+        catch (IOException e) { /* default false */ }
+        return false;
+    }
+
     /**
      * Scans /configuration/training/ for all JSON files, categorizes them,
      * trains separate models, and saves weights to /training/weights/.
+     * Respects train.module system property and save-weights-to-mysql config.
      */
     public void trainAll() throws Exception
     {
         Files.createDirectories(WEIGHTS_OUTPUT_DIR);
+
+        WeightPersistence wp = persistToMySQL ? new WeightPersistence() : null;
+        long sessionId = wp != null ? wp.recordSessionStart(trainModule != null ? trainModule : "all") : -1;
+        int modelsTrained = 0;
 
         List<Path> allJsonFiles = Files.walk(TRAINING_INPUT_DIR)
             .filter(p -> Files.isRegularFile(p) && p.toString().endsWith(".json"))
@@ -94,17 +123,38 @@ public class ConfigurationTrainer
         System.out.println("[ConfigurationTrainer] Ethics files: " + ethicsFiles.size());
         System.out.println("[ConfigurationTrainer] Preference files: " + preferenceFiles.size());
 
-        // Train each category
-        if (!knowledgeFiles.isEmpty())
+        // Train each category (filtered by module if specified)
+        boolean trainDemocratic = trainModule == null || "democratic".equals(trainModule);
+        boolean trainBlackbelt = trainModule == null || "blackbelt".equals(trainModule);
+
+        if (trainDemocratic && !knowledgeFiles.isEmpty())
+        {
             trainModel("knowledge-model", knowledgeFiles);
+            if (wp != null) wp.saveWeights("knowledge-model", "democratic", WEIGHTS_OUTPUT_DIR.resolve("knowledge-model"),
+                knowledgeFiles.stream().map(p -> p.getFileName().toString()).collect(Collectors.joining(",")), knowledgeFiles.size(), EPOCHS);
+            modelsTrained++;
+        }
 
-        if (!ethicsFiles.isEmpty())
+        if (trainBlackbelt && !ethicsFiles.isEmpty())
+        {
             trainModel("ethics-model", ethicsFiles);
+            if (wp != null) wp.saveWeights("ethics-model", "blackbelt", WEIGHTS_OUTPUT_DIR.resolve("ethics-model"),
+                ethicsFiles.stream().map(p -> p.getFileName().toString()).collect(Collectors.joining(",")), ethicsFiles.size(), EPOCHS);
+            modelsTrained++;
+        }
 
-        if (!preferenceFiles.isEmpty())
+        if (trainDemocratic && !preferenceFiles.isEmpty())
+        {
             trainModel("preference-model", preferenceFiles);
+            if (wp != null) wp.saveWeights("preference-model", "democratic", WEIGHTS_OUTPUT_DIR.resolve("preference-model"),
+                preferenceFiles.stream().map(p -> p.getFileName().toString()).collect(Collectors.joining(",")), preferenceFiles.size(), EPOCHS);
+            modelsTrained++;
+        }
+
+        if (wp != null) wp.recordSessionEnd(sessionId, modelsTrained, "complete");
 
         System.out.println("[ConfigurationTrainer] All training complete. Weights saved to: " + WEIGHTS_OUTPUT_DIR);
+        if (persistToMySQL) System.out.println("[ConfigurationTrainer] Weights persisted to MySQL (model_weights table).");
     }
 
     /**

@@ -185,15 +185,23 @@ public class DemocraticAIServer extends Thread
             trainFromGitHub();
 
         // Train on /configuration/training/ JSON files and save weights to /training/weights/
-        try
+        // Respects <train-on-startup> setting in ai-module-config.xml
+        if (shouldTrainOnStartup())
         {
-            ai.training.ConfigurationTrainer configTrainer = new ai.training.ConfigurationTrainer();
-            configTrainer.trainAll();
-            System.out.println("[DemocraticAIServer] Configuration training complete — weights in /training/weights/");
+            try
+            {
+                ai.training.ConfigurationTrainer configTrainer = new ai.training.ConfigurationTrainer();
+                configTrainer.trainAll();
+                System.out.println("[DemocraticAIServer] Configuration training complete — weights in /training/weights/");
+            }
+            catch (Exception e)
+            {
+                System.out.println("[DemocraticAIServer] Configuration training deferred: " + e.getMessage());
+            }
         }
-        catch (Exception e)
+        else
         {
-            System.out.println("[DemocraticAIServer] Configuration training deferred: " + e.getMessage());
+            System.out.println("[DemocraticAIServer] Training on startup disabled by config.");
         }
 
         // Initialize AI speculator (graceful if native libs can't extract)
@@ -213,6 +221,23 @@ public class DemocraticAIServer extends Thread
         {
             System.out.println("[DemocraticAIServer] AI speculator init deferred: " + e.getMessage());
         }
+    }
+
+    private boolean shouldTrainOnStartup()
+    {
+        try
+        {
+            Path configFile = Paths.get("configuration/ai-module-config.xml");
+            if (Files.exists(configFile))
+            {
+                String xml = Files.readString(configFile);
+                // Check <democratic-ai> section for <train-on-startup>false</train-on-startup>
+                if (xml.contains("<train-on-startup>false</train-on-startup>"))
+                    return false;
+            }
+        }
+        catch (IOException e) { /* default to train */ }
+        return true;
     }
 
     private static final String GITHUB_RAW = "https://raw.githubusercontent.com/mearvk/Java.Web.Server.Telnet.Front.Java.21/main/";

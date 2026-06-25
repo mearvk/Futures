@@ -27,6 +27,8 @@
         <table name="speculation_results"/>
         <table name="tax_closures"/>
         <table name="defense_cases"/>
+        <table name="model_weights"/>
+        <table name="training_sessions"/>
     </tables>
 
 </database-config>
