@@ -162,6 +162,8 @@ Each file demonstrates how Java Futures embody a democratic principle.
 | `start.sh` | Start server (kills existing port 5000 process) |
 | `shutdown.sh` | Stop server (PID + port sweep) |
 | `test.sh` | 86-test evaluative suite (9 sections) |
+| `test-qa.sh` | 100-question Q&A knowledge test — validates AI module answers from trained inputs |
+| `status.sh` | Full status report — uptime, connections, visitors, hostile activity, question categories |
 | `dump.sh` | MySQL database dump |
 | `fetch-44h.sh` | Fetch and store 44H pledge document |
 | `integrity.sh` | SHA-256 tamper detection |
@@ -178,6 +180,139 @@ bash start.sh
 
 # Test (86 tests)
 bash test.sh
+
+# Q&A Knowledge Test (100 questions against trained AI)
+bash test-qa.sh
+
+# Status Report (uptime, connections, hostile activity)
+bash status.sh
+
+# Stop
+bash shutdown.sh
+
+# Verify authenticity against GitHub
+bash verify.sh
+
+# Check integrity
+bash integrity.sh
+```
+
+## Training Sets — Neural Knowledge Corpus
+
+The `/configuration/training/` directory houses all JSON training data consumed by the `ConfigurationTrainer` and the `DemocraticAIServer` at startup. Three model categories are produced:
+
+| Category | Files | Output Weight | Purpose |
+|----------|-------|---------------|---------|
+| Knowledge | `mearvk.001–021.json`, `large.scale.training.001–005.json` | `knowledge-model` | Tax law, authority, science, democratic Q&A |
+| Ethics | `black.belt.001–010.json` | `ethics-model` | BlackBelt™ Ethical Auditor — martial arts conduct/legal alignment |
+| Preference | `vocabulary.satisfaction.001.json` | `preference-model` | RLHF-style chosen/rejected pairs for constructive language |
+
+**Training Data Categories:**
+
+- **mearvk series (001–021)** — U.S. tax considerations for non-resident aliens, IRS forms (W-8BEN), investor vs. trader status, mark-to-market elections, tax treaties, Section 864(b) safe harbors, fiduciary duties, and federal legal frameworks
+- **large.scale.training (001–005)** — Authority, science, compounding attitude, and neuro-electromotive grounding for man-through-study-and-endeavor
+- **black.belt (001–010)** — Conversational fine-tuning data for the Black Belt Ethical Auditor (BBEA), covering Taekwondo WT, Shotokan Karate, IBJJF BJJ, MCMAP, Tang Soo Do, Hapkido — evaluating conduct, ethics, legitimacy, and U.S. legal alignment
+- **vocabulary.satisfaction.001** — Preference pairs for constructive vs. destructive wording in collaborative decision-making
+
+**ConfigurationTrainer.java** (`source/ai/training/`):
+- Reads all JSON files from `/configuration/training/`
+- Encodes training data into feature vectors via text hashing and statistical properties
+- Trains neural network (16→64→32→output) per category
+- Saves weight files to `/training/weights/`
+- Three output models: knowledge, ethics, preference
+
+## Democratic Knowledge Base
+
+The `/configuration/democratic/` directory provides foundational knowledge for the AI server's Q&A capability:
+
+| File | Content |
+|------|---------|
+| `democratic.answers.txt` | Best practices for democratic questioning and answering — open-ended framing, multi-perspective synthesis |
+| `us.tax.laws.explained.txt` | Comprehensive U.S. tax defense strategies — Section 864(b), 183-day rules, FDAP/treaty neutralization, LLC structures, Section 899 |
+| `tax.survivors.txt` | Tax survivorship and compliance frameworks |
+| `defensive.heuristics.and.tactics.for.US.personnel.txt` | Defensive operational heuristics |
+| `fiduciary/standard.fiduciary.rdns` | U.S. fiduciary law — OLD CAR duties (Loyalty, Care, Obedience, Disclosure, Confidentiality, Accounting), ERISA, breach elements |
+| `fiduciary/black.belt.fiduciary.rdns` | BlackBelt-level fiduciary evaluation criteria |
+| `legal/standard.federal.rdns` | Federal law and IQ/citizenship — equal obligations, capitalism/socialism legal standing, First Amendment protections |
+| `legal/black.belt.federal.rdns` | BlackBelt-level federal legal alignment data |
+
+## Presidential Knowledge
+
+The `/configuration/presidential/presidents.of.the.us.txt` file provides the AI with a complete reference of all U.S. Presidents (1–47), including terms, major achievements, and historical context — used for answering citizen queries about presidential history and democratic governance.
+
+## Configuration — Server & Infrastructure
+
+| File | Role |
+|------|------|
+| `server-config.xml` | Port, timeouts, connection limits |
+| `database-config.xml` | MySQL connection (democratic_d500) |
+| `ai-module-config.xml` | DJL/PyTorch model parameters, training epochs, layer dimensions |
+| `hardware-and-strikes.xml` | BlackBelt™ 6-month activation, Four-Pillar weights |
+| `intent-regulator-config.xml` | Intent classification and regulation thresholds |
+| `nio-masquerade-config.xml` | NIO masquerade module configuration |
+| `nwe-config.xml` | Network awareness engine |
+| `programs.xml` | Registered program definitions |
+| `protocol-handlers.xml` | Protocol handler chain |
+| `receiver.only.xml` | Receiver-only mode constraints |
+| `masquerade-modules.xml` | Masquerade module registry |
+| `transfer-contacts.xml` | Transfer and contact endpoints |
+| `port-2000-directory-config.xml` | Port 2000 directory services |
+| `known.port.*.servers.xml` | Known server registries (ports 2000, 20000, 49152) |
+
+## Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `install.sh` | Full 7-step installation |
+| `start.sh` | Start server (kills existing port 5000 process) |
+| `shutdown.sh` | Stop server (PID + port sweep) |
+| `test.sh` | 86-test evaluative suite (9 sections) |
+| `test-qa.sh` | 100-question Q&A knowledge test — validates AI module answers from trained inputs |
+| `status.sh` | Full status report — uptime, connections, visitors, hostile activity, question categories |
+| `dump.sh` | MySQL database dump |
+| `fetch-44h.sh` | Fetch and store 44H pledge document |
+| `integrity.sh` | SHA-256 tamper detection |
+| `verify.sh` | GitHub commit authenticity + hostile attempt logging |
+
+## Logging & Data
+
+| File | Purpose |
+|------|---------|
+| `logging/qa-test-results.csv` | Q&A test results (question, status, response, content flag) |
+| `logging/hardware-and-strikes.log` | BlackBelt™ module activity log |
+| `logging/integrity.log` | SHA-256 integrity check history |
+| `logging/verification.log` | GitHub verification results |
+| `logging/verification.attempts.csv` | Hostile verification attempt tracking |
+| `data/safety.ledger.csv` | Connection safety scores — Days-into-time, linear and exponential counseling |
+| `data/uptime.accumulator` | Cumulative server uptime (persists across restarts) |
+| `data/certs/` | PKS/SSL certificates (auto-deleted after 19 days) |
+| `data/cookies/` | Stored cookies (auto-deleted after 19 days) |
+
+## Lock Files — Intellectual Property
+
+| File | Purpose |
+|------|---------|
+| `lock/armor.coefficient.rmds` | Armor coefficient locked parameters |
+| `lock/mearvk.ltd.united.states.USA.locked.rmds` | MEARVK LLC U.S. locked resources |
+| `lock.exceptional.iq.gains/authorial.tutorialship.mean.rmds` | Authorial tutorialship mean coefficients |
+
+## Running
+
+```bash
+# Install
+bash install.sh
+
+# Start (waits 2-3 min secure random, then opens port 5000)
+bash start.sh
+
+# Test (86 tests)
+bash test.sh
+
+# Q&A Knowledge Test (100 questions against trained AI)
+bash test-qa.sh
+
+# Status Report (uptime, connections, hostile activity)
+bash status.sh
 
 # Stop
 bash shutdown.sh
@@ -200,4 +335,6 @@ bash integrity.sh
 7. **Democratic 01–10**: How concurrency patterns protect and embody democratic values
 8. **Pro/National 01–08**: Protective procedural pipeline — Java Futures as national defense
 9. **AI Module**: DJL/PyTorch tax defense speculation + democratic Q&A
-10. **Hardware and Strikes™**: Second military module (6-month activation)
+10. **Training Sets**: 37 JSON files across knowledge, ethics, and preference models
+11. **ConfigurationTrainer**: Automated batch training from `/configuration/training/` → `/training/weights/`
+12. **Hardware and Strikes™**: Second military module (6-month activation)
