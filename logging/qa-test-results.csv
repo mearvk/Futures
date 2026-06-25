@@ -1,0 +1,4 @@
+question_number,question,status,response_status,has_content
+1,"What is the capital gains tax rate for non-resident aliens?",FAIL,NO_AGREEMENT,false
+2,"What is the dividend withholding tax rate for foreign investors?",PASS,OK,true
+3,"What is Section 864(b) about?",PASS,OK,true

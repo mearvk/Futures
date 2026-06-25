@@ -346,6 +346,54 @@ test_result $(grep -q "Democratic ProFront National 1.0" "$PROJECT_DIR/README.md
 
 echo ""
 
+# ── Section 10: Legal RDNS Configuration ──────────────────────
+echo "── [10] LEGAL RDNS CONFIGURATION ────────────────────────────"
+
+test_result $([ -f "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" ] && echo 0 || echo 1) \
+    "standard.federal.rdns present"
+test_result $([ -s "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" ] && echo 0 || echo 1) \
+    "standard.federal.rdns non-empty"
+test_result $([ -f "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" ] && echo 0 || echo 1) \
+    "black.belt.federal.rdns present"
+test_result $([ -s "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" ] && echo 0 || echo 1) \
+    "black.belt.federal.rdns non-empty"
+
+# Content integrity: standard.federal.rdns
+test_result $(grep -q "Equal Obligations" "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" && echo 0 || echo 1) \
+    "standard.federal.rdns declares Equal Obligations"
+test_result $(grep -q "First Amendment" "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" && echo 0 || echo 1) \
+    "standard.federal.rdns references First Amendment"
+test_result $(grep -q "Smith Act" "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" && echo 0 || echo 1) \
+    "standard.federal.rdns references Smith Act (18 U.S.C. § 2385)"
+test_result $(grep -q "Takings Clause" "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" && echo 0 || echo 1) \
+    "standard.federal.rdns references Fifth Amendment Takings Clause"
+test_result $(grep -q "National Labor Relations Act" "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" && echo 0 || echo 1) \
+    "standard.federal.rdns references National Labor Relations Act"
+test_result $(grep -q "Internal Revenue Code" "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" && echo 0 || echo 1) \
+    "standard.federal.rdns references Internal Revenue Code"
+
+# Content integrity: black.belt.federal.rdns
+test_result $(grep -q "EB-1A" "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" && echo 0 || echo 1) \
+    "black.belt.federal.rdns references EB-1A Extraordinary Ability"
+test_result $(grep -q "Dhanasar" "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" && echo 0 || echo 1) \
+    "black.belt.federal.rdns references Matter of Dhanasar (2016)"
+test_result $(grep -q "O-1A" "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" && echo 0 || echo 1) \
+    "black.belt.federal.rdns references O-1A visa"
+test_result $(grep -q "Civil Rights Act" "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" && echo 0 || echo 1) \
+    "black.belt.federal.rdns references Civil Rights Act of 1964"
+test_result $(grep -q "National Science Foundation" "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" && echo 0 || echo 1) \
+    "black.belt.federal.rdns references NSF"
+test_result $(grep -q "42 U.S. Code" "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" && echo 0 || echo 1) \
+    "black.belt.federal.rdns references Title 42 U.S. Code"
+
+# Cross-validation: both files agree on core legal principles
+STD_HAS_EQUAL=$(grep -c "equal" "$PROJECT_DIR/configuration/democratic/legal/standard.federal.rdns" 2>/dev/null)
+BB_HAS_EQUAL=$(grep -c "protected class" "$PROJECT_DIR/configuration/democratic/legal/black.belt.federal.rdns" 2>/dev/null)
+test_result $([ "$STD_HAS_EQUAL" -gt 0 ] && [ "$BB_HAS_EQUAL" -gt 0 ] && echo 0 || echo 1) \
+    "Both RDNS files affirm equality under law"
+
+echo ""
+
 # ── Results ───────────────────────────────────────────────────
 echo "============================================================"
 echo " RESULTS: $PASS passed / $FAIL failed / $TOTAL total"
