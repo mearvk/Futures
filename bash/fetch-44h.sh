@@ -5,7 +5,7 @@
 # Authenticity guaranteed by Max Rupplin, Senior Honest
 # MEARVK LLC — United States
 # ============================================================
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 CP="$PROJECT_DIR/output/production/Futures:$(echo "$PROJECT_DIR"/jars/*.jar | tr ' ' ':')"
 
 echo "============================================================"

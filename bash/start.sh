@@ -3,7 +3,7 @@
 # START — Democratic ProFront National 1.0
 # Installer ID: MEARVK LLC - Max Rupplin
 # ============================================================
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 CP="$PROJECT_DIR/output/production/Futures:$(echo "$PROJECT_DIR"/jars/*.jar | tr ' ' ':')"
 SILENT=false
 [ "$1" = "silent" ] && SILENT=true

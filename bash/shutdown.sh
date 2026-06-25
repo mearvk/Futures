@@ -4,7 +4,7 @@
 # Stops any existing port 5000 process
 # Installer ID: MEARVK LLC - Max Rupplin
 # ============================================================
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
 # Method 1: Kill by PID file
 if [ -f "$PROJECT_DIR/.server.pid" ]; then

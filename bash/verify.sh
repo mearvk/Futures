@@ -11,7 +11,7 @@
 # ============================================================
 set -u
 
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_FILE="$PROJECT_DIR/logging/verification.log"
 ATTEMPTS_FILE="$PROJECT_DIR/logging/verification.attempts.csv"
 REPO_API="https://api.github.com/repos/mearvk/Futures"

@@ -4,7 +4,7 @@
 # Dumps all data from democratic_d500 database
 # Installer ID: MEARVK LLC - Max Rupplin
 # ============================================================
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 DUMP_DIR="$PROJECT_DIR/dumps"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 DUMP_FILE="$DUMP_DIR/democratic_d500_$TIMESTAMP.sql"

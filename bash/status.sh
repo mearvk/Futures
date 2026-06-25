@@ -6,7 +6,7 @@
 #          question categories (money, voting, presidents, etc.)
 # ============================================================
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 DB_NAME="democratic_d500"
 DB_USER="mearvk_admin"
 PORT=5000

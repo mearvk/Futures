@@ -6,7 +6,7 @@
 # ============================================================
 set -u
 
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 INTEGRITY_FILE="$PROJECT_DIR/.integrity.sha256"
 LOG_FILE="$PROJECT_DIR/logging/integrity.log"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S %Z')

@@ -173,28 +173,28 @@ Each file demonstrates how Java Futures embody a democratic principle.
 
 ```bash
 # Install
-bash install.sh
+bash bash/install.sh
 
 # Start (waits 2-3 min secure random, then opens port 5000)
-bash start.sh
+bash bash/start.sh
 
 # Test (86 tests)
-bash test.sh
+bash bash/test.sh
 
 # Q&A Knowledge Test (100 questions against trained AI)
-bash test-qa.sh
+bash bash/test-qa.sh
 
 # Status Report (uptime, connections, hostile activity)
-bash status.sh
+bash bash/status.sh
 
 # Stop
-bash shutdown.sh
+bash bash/shutdown.sh
 
 # Verify authenticity against GitHub
-bash verify.sh
+bash bash/verify.sh
 
 # Check integrity
-bash integrity.sh
+bash bash/integrity.sh
 ```
 
 ## Training Sets — Neural Knowledge Corpus
@@ -300,28 +300,28 @@ The `/configuration/presidential/presidents.of.the.us.txt` file provides the AI 
 
 ```bash
 # Install
-bash install.sh
+bash bash/install.sh
 
 # Start (waits 2-3 min secure random, then opens port 5000)
-bash start.sh
+bash bash/start.sh
 
 # Test (86 tests)
-bash test.sh
+bash bash/test.sh
 
 # Q&A Knowledge Test (100 questions against trained AI)
-bash test-qa.sh
+bash bash/test-qa.sh
 
 # Status Report (uptime, connections, hostile activity)
-bash status.sh
+bash bash/status.sh
 
 # Stop
-bash shutdown.sh
+bash bash/shutdown.sh
 
 # Verify authenticity against GitHub
-bash verify.sh
+bash bash/verify.sh
 
 # Check integrity
-bash integrity.sh
+bash bash/integrity.sh
 ```
 
 ## Progression

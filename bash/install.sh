@@ -6,7 +6,7 @@
 # ============================================================
 set -e
 
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 echo "============================================================"
 echo " Democratic ProFront National 1.0 — INSTALLER"
 echo " MEARVK LLC - Max Rupplin"

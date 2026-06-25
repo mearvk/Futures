@@ -3,7 +3,7 @@
 # Installer ID: MEARVK LLC — Max Rupplin
 # D500 Democratic President
 
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 CLASSPATH="$PROJECT_DIR/source:$PROJECT_DIR/jars/*"
 
 echo "═══════════════════════════════════════════════════════════════"
