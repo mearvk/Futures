@@ -105,13 +105,13 @@ declare -A BASELINE=(
     ["sql/schema.sql"]="2a0ecc3d6ffc41b75fc10454b5cdf9b3f4ac16fff7bbd6957ce0a326bc142dc8"
     ["sql/schema-update-ai.sql"]="dab4a4795efc6596e07253c894957eab1bfda2a8b24f282a3b64afe782168716"
     ["sql/schema-44h.sql"]="0c989bbcad36cf99938f1adda6391f9676ae1a3f61c411f048a28601003a48fb"
-    ["bash/install.sh"]="1abb3b89d301adfd34136ef5d77bbe7949bb919094f5f0dc829c7434ebf212d4"
+    ["bash/install.sh"]="e836d8bbb01a1dd310050871b2f5aeec5e355ad4b086d59afd324729045afca0"
     ["bash/start.sh"]="d1c6ab54dfa44ed416d78df3e427f2462d0a9376a940a9d42d6b5f2e9f1bc62b"
     ["bash/shutdown.sh"]="f1ca1bef43de1306f43e3607d78a73934e9feed463ad0038c70435e0536b581b"
     ["bash/test.sh"]="00910da5d8e77a2c26842f2c2a51ebd976b5986712aac7bb14dcaea83f3f7420"
     ["bash/test-qa.sh"]="d67825a46afd8565badbf8fd6e41f0bf2eea0a6858e684ba58d018c01eea1c47"
     ["bash/verify.sh"]="9e8d2cff118b039adca51880a7343b7db1cf648c4a85d10c20f1afde5303e1e9"
-    ["bash/train.sh"]="743b212a90af13f4cf85830867bc2d3ed275d4943806fbf293dba7a85bbbccf5"
+    ["bash/train.sh"]="0645ac2be5f71298fbff61cc5ac25664d46e1dd2929ef31fdd95c0870e9b3030"
 )
 
 # Verify against embedded baseline
