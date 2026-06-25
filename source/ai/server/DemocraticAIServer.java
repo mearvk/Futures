@@ -33,7 +33,7 @@ public class DemocraticAIServer extends Thread
 {
     private static final int PORT = 5000;
     private static final int MAX_CONNECTIONS = 5040;
-    private static final int MAX_PER_IP = 1;
+    private static final int MAX_PER_IP = Integer.getInteger("test.max.per.ip", 1);
     private static final int TIMEOUT_MS = 58 * 60 * 1000;
     private static final int BACKLOG = 128;
     private static final int PROFILE_BYTES = 5000;

@@ -229,6 +229,16 @@ if kill -0 $SERVER_PID 2>/dev/null; then
 
     sleep 1
 
+    # Test: Q&A responsiveness — ask a democratic question after agreement
+    QA_RESP=$( (printf "%s\n" "$SANE_MSG"; sleep 4; printf "What is due process in a democracy?\n"; sleep 3) | nc -q 1 localhost 5000 2>/dev/null)
+    if echo "$QA_RESP" | grep -qi "process\|law\|orderly\|steps\|rights"; then
+        test_result 0 "Q&A responsiveness: democratic question answered"
+    else
+        test_result 1 "Q&A responsiveness: democratic question answered (got: '$(echo "$QA_RESP" | tail -3)')"
+    fi
+
+    sleep 1
+
     # Test: safety ledger is being written
     if [ -f "$PROJECT_DIR/data/safety.ledger.csv" ]; then
         LEDGER_LINES=$(wc -l < "$PROJECT_DIR/data/safety.ledger.csv")
