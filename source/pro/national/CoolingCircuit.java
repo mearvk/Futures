@@ -31,7 +31,7 @@ public class CoolingCircuit
 
     private static final Set<String> REVEAL_MARKERS = Set.of(
         "internal", "architecture", "source", "config", "file",
-        "database", "schema", "password", "key", "secret");
+            "database", "schema", "password", "key", "secret");
 
     /** Returns true if the cooling circuit should activate for this score. */
     public boolean shouldActivate(double safetyScore)
