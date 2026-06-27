@@ -1,4 +1,4 @@
-package examples.example007;
+package red.Futures.source.examples.example007;
 import java.util.concurrent.*;
 import java.util.stream.*;
 import java.util.*;

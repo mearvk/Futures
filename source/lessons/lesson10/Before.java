@@ -1,4 +1,4 @@
-package lessons.lesson10;// BEFORE: Mixing concerns — business logic, threading, and output together
+package red.Futures.source.lessons.lesson10;// BEFORE: Mixing concerns — business logic, threading, and output together
 import java.util.concurrent.*;
 
 public class Before {

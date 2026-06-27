@@ -1,4 +1,4 @@
-package black.red.Futures.examples.example009;
+package red.Futures.examples.example009;
 import java.util.concurrent.*;
 
 public class CompletableFutureExceptionHandling {

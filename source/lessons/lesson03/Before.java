@@ -1,4 +1,4 @@
-package lessons.lesson03;// BEFORE: Sequential execution of independent tasks
+package red.Futures.source.lessons.lesson03;// BEFORE: Sequential execution of independent tasks
 import java.util.concurrent.*;
 
 public class Before {

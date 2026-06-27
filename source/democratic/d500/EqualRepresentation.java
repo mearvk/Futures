@@ -1,4 +1,4 @@
-package democratic.d500;
+package red.Futures.source.democratic.d500;
 // Democratic Principle: Equal Representation — every voice gets equal processing
 import java.util.concurrent.*;
 import java.util.stream.*;

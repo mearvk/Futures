@@ -1,4 +1,4 @@
-package lessons.lesson01;// AFTER: Clean chain with thenCompose — no blocking between steps
+package red.Futures.source.lessons.lesson01;// AFTER: Clean chain with thenCompose — no blocking between steps
 import java.util.concurrent.*;
 
 public class After {

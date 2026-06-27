@@ -1,4 +1,4 @@
-package black.red.Futures.democratic.d500;
+package red.Futures.democratic.d500;
 // Democratic Principle: Checks and Balances — no single branch proceeds unchecked
 import java.util.concurrent.*;
 

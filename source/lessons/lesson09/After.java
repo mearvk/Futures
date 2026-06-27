@@ -1,4 +1,4 @@
-package lessons.lesson09;// AFTER: Properly typed — compiler enforces correctness
+package red.Futures.source.lessons.lesson09;// AFTER: Properly typed — compiler enforces correctness
 import java.util.concurrent.*;
 
 public class After {

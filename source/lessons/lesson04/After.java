@@ -1,4 +1,4 @@
-package lessons.lesson04;// AFTER: allOf + stream for clean fan-out/fan-in
+package red.Futures.source.lessons.lesson04;// AFTER: allOf + stream for clean fan-out/fan-in
 import java.util.concurrent.*;
 import java.util.*;
 import java.util.stream.*;

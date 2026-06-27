@@ -1,4 +1,4 @@
-package ai.trainers;
+package red.Futures.source.ai.trainers;
 
 import ai.djl.Model;
 import ai.djl.ndarray.NDArray;

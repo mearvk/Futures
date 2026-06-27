@@ -1,4 +1,4 @@
-package lessons.lesson06;// AFTER: Scoped executor with try-finally for guaranteed cleanup
+package red.Futures.source.lessons.lesson06;// AFTER: Scoped executor with try-finally for guaranteed cleanup
 import java.util.concurrent.*;
 
 public class After {

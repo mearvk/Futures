@@ -1,6 +1,6 @@
-package ai.server;
+package red.Futures.source.ai.server;
 
-import ai.module.TaxDefenseSpeculator;
+import red.Futures.source.ai.module.TaxDefenseSpeculator;
 
 import java.io.*;
 import java.net.*;
@@ -49,8 +49,8 @@ public class DemocraticAIServer extends Thread
     private final List<String> knowledgeBase = new CopyOnWriteArrayList<>();
     private final List<String> heuristics = new CopyOnWriteArrayList<>();
     private TaxDefenseSpeculator speculator;
-    private ai.military.UptimeAccumulator uptimeAccumulator;
-    private ai.military.HardwareAndStrikes hardwareAndStrikes;
+    private red.Futures.source.ai.military.UptimeAccumulator uptimeAccumulator;
+    private red.Futures.source.ai.military.HardwareAndStrikes hardwareAndStrikes;
 
     // Safety score history: modulated by BlackBelt™, counseled by Democratic AI
     // Score: 0.01 = very safe, 100 = very unsafe. Stored with timestamp as "Days into time"
@@ -105,12 +105,12 @@ public class DemocraticAIServer extends Thread
         System.out.println("[DemocraticAIServer] Port " + PORT + " OPEN. Accepting democratic connections.");
 
         // Initialize uptime accumulator (persists across restarts)
-        uptimeAccumulator = new ai.military.UptimeAccumulator();
+        uptimeAccumulator = new red.Futures.source.ai.military.UptimeAccumulator();
         uptimeAccumulator.persist(); // write immediately to confirm file exists
         System.out.println("[DemocraticAIServer] Cumulative uptime: " + (uptimeAccumulator.totalSeconds() / 86400) + " days");
 
         // Attempt to load Second Military Module (requires 6 months)
-        hardwareAndStrikes = new ai.military.HardwareAndStrikes();
+        hardwareAndStrikes = new red.Futures.source.ai.military.HardwareAndStrikes();
         hardwareAndStrikes.load(uptimeAccumulator);
 
         // Persist uptime every 10 minutes
@@ -190,7 +190,7 @@ public class DemocraticAIServer extends Thread
         {
             try
             {
-                ai.training.ConfigurationTrainer configTrainer = new ai.training.ConfigurationTrainer();
+                red.Futures.source.ai.training.ConfigurationTrainer configTrainer = new red.Futures.source.ai.training.ConfigurationTrainer();
                 configTrainer.trainAll();
                 System.out.println("[DemocraticAIServer] Configuration training complete — weights in /training/weights/");
             }
@@ -439,7 +439,7 @@ public class DemocraticAIServer extends Thread
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
             int paragraphCount = 0;
             String line;
-            pro.national.CoolingCircuit coolingCircuit = new pro.national.CoolingCircuit();
+            red.Futures.source.pro.national.CoolingCircuit coolingCircuit = new red.Futures.source.pro.national.CoolingCircuit();
 
             while ((line = reader.readLine()) != null && paragraphCount < MAX_PARAGRAPHS)
             {

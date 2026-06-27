@@ -1,4 +1,4 @@
-package lessons.lesson07;// BEFORE: Polling isDone() in a busy loop
+package red.Futures.source.lessons.lesson07;// BEFORE: Polling isDone() in a busy loop
 import java.util.concurrent.*;
 
 public class Before {

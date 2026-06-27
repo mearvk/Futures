@@ -1,4 +1,4 @@
-package lessons.lesson01;// BEFORE: Nested callbacks, hard to read
+package red.Futures.source.lessons.lesson01;// BEFORE: Nested callbacks, hard to read
 import java.util.concurrent.*;
 
 public class Before {

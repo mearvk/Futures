@@ -1,4 +1,4 @@
-package examples.example003;
+package red.Futures.source.examples.example003;
 import java.util.concurrent.*;
 
 public class FutureCancellation {

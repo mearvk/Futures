@@ -1,4 +1,4 @@
-package lessons.lesson10;// AFTER: Each stage has one responsibility
+package red.Futures.source.lessons.lesson10;// AFTER: Each stage has one responsibility
 import java.util.concurrent.*;
 
 public class After {

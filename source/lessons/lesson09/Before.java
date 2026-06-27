@@ -1,4 +1,4 @@
-package lessons.lesson09;// BEFORE: Raw types, no generics — unclear what the future holds
+package red.Futures.source.lessons.lesson09;// BEFORE: Raw types, no generics — unclear what the future holds
 import java.util.concurrent.*;
 
 public class Before {

@@ -1,5 +1,5 @@
-package black.red.Futures;
-import ai.server.DemocraticAIServer;
+package red.Futures.source;
+import red.Futures.source.ai.server.DemocraticAIServer;
 
 /**
  * Main — Entry point for Democratic ProFront National 1.0.

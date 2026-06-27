@@ -1,4 +1,4 @@
-package lessons.lesson08;// BEFORE: Ignoring exception type, generic catch-all
+package red.Futures.source.lessons.lesson08;// BEFORE: Ignoring exception type, generic catch-all
 import java.util.concurrent.*;
 
 public class Before {

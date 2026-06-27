@@ -1,4 +1,4 @@
-package democratic.d500;
+package red.Futures.source.democratic.d500;
 // Democratic Principle: Majority Rule — decisions reflect the majority
 import java.util.concurrent.*;
 import java.util.stream.*;

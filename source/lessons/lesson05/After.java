@@ -1,4 +1,4 @@
-package lessons.lesson05;// AFTER: Each transformation is a named step in the pipeline
+package red.Futures.source.lessons.lesson05;// AFTER: Each transformation is a named step in the pipeline
 import java.util.concurrent.*;
 
 public class After {

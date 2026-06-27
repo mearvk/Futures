@@ -1,4 +1,4 @@
-package black.red.Futures.examples.example001;
+package red.Futures.examples.example001;
 import java.util.concurrent.*;
 
 public class BasicFutureGet {

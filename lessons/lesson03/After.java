@@ -1,4 +1,4 @@
-package black.red.Futures.lessons.lesson03;
+package red.Futures.lessons.lesson03;
 // AFTER: Parallel execution with thenCombine — both run concurrently
 import java.util.concurrent.*;
 

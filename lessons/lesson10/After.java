@@ -1,4 +1,4 @@
-package black.red.Futures.lessons.lesson10;
+package red.Futures.lessons.lesson10;
 // AFTER: Each stage has one responsibility
 import java.util.concurrent.*;
 

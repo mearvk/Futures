@@ -1,4 +1,4 @@
-package examples.example001;
+package red.Futures.source.examples.example001;
 import java.util.concurrent.*;
 
 public class BasicFutureGet {

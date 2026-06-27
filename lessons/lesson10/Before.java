@@ -1,4 +1,4 @@
-package black.red.Futures.lessons.lesson10;
+package red.Futures.lessons.lesson10;
 // BEFORE: Mixing concerns — business logic, threading, and output together
 import java.util.concurrent.*;
 

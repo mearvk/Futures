@@ -1,4 +1,4 @@
-package examples.example006;
+package red.Futures.source.examples.example006;
 import java.util.concurrent.*;
 
 public class CompletableFutureCombine {

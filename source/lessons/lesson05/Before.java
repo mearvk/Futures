@@ -1,4 +1,4 @@
-package lessons.lesson05;// BEFORE: Inline lambda with complex logic — unreadable
+package red.Futures.source.lessons.lesson05;// BEFORE: Inline lambda with complex logic — unreadable
 import java.util.concurrent.*;
 
 public class Before {

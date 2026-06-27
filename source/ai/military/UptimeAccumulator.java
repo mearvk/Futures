@@ -1,4 +1,4 @@
-package ai.military;
+package red.Futures.source.ai.military;
 
 import java.io.*;
 import java.nio.file.*;

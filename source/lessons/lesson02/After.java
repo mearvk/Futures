@@ -1,4 +1,4 @@
-package lessons.lesson02;// AFTER: Declarative error recovery with exceptionally()
+package red.Futures.source.lessons.lesson02;// AFTER: Declarative error recovery with exceptionally()
 import java.util.concurrent.*;
 
 public class After {

@@ -1,4 +1,4 @@
-package black.red.Futures.source.examples.example005;
+package red.Futures.source.examples.example005;
 
 import java.util.concurrent.*;
 

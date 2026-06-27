@@ -1,4 +1,4 @@
-package lessons.lesson07;// AFTER: Reactive callback with thenAccept — no polling
+package red.Futures.source.lessons.lesson07;// AFTER: Reactive callback with thenAccept — no polling
 import java.util.concurrent.*;
 
 public class After {

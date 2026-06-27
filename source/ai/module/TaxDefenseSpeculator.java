@@ -1,4 +1,4 @@
-package ai.module;
+package red.Futures.source.ai.module;
 
 import ai.djl.Model;
 import ai.djl.ModelException;

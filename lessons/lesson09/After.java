@@ -1,4 +1,4 @@
-package black.red.Futures.lessons.lesson09;
+package red.Futures.lessons.lesson09;
 // AFTER: Properly typed — compiler enforces correctness
 import java.util.concurrent.*;
 

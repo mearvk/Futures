@@ -1,4 +1,4 @@
-package lessons.lesson08;// AFTER: handle() gives access to both result and exception
+package red.Futures.source.lessons.lesson08;// AFTER: handle() gives access to both result and exception
 import java.util.concurrent.*;
 
 public class After {

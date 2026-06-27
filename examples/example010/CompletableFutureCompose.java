@@ -1,4 +1,4 @@
-package black.red.Futures.examples.example010;
+package red.Futures.examples.example010;
 import java.util.concurrent.*;
 
 public class CompletableFutureCompose {

@@ -1,4 +1,4 @@
-package examples.example012;
+package red.Futures.source.examples.example012;
 import java.util.concurrent.*;
 
 public class CompletableFutureAsync {

@@ -1,4 +1,4 @@
-package ai.server;
+package red.Futures.source.ai.server;
 
 import java.io.*;
 import java.net.ServerSocket;

@@ -1,4 +1,4 @@
-package black.red.Futures.democratic.d500;
+package red.Futures.democratic.d500;
 // Democratic Principle: Accountability — handle() ensures every failure is reported
 import java.util.concurrent.*;
 

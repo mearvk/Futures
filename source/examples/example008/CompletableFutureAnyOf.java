@@ -1,4 +1,4 @@
-package examples.example008;
+package red.Futures.source.examples.example008;
 import java.util.concurrent.*;
 
 public class CompletableFutureAnyOf {
