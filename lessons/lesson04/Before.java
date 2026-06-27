@@ -1,4 +1,5 @@
-// BEFORE: Manual loop collecting results, no structure
+package black.red.Futures.lessons.lesson04;// BEFORE: Manual loop collecting results, no structure
+
 import java.util.concurrent.*;
 import java.util.*;
 

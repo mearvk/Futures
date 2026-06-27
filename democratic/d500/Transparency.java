@@ -1,3 +1,4 @@
+package black.red.Futures.democratic.d500;
 // Democratic Principle: Transparency — all votes visible, no hidden state
 import java.util.concurrent.*;
 import java.util.*;

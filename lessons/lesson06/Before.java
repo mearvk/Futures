@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson06;
 // BEFORE: Shared mutable executor passed everywhere, never shut down
 import java.util.concurrent.*;
 

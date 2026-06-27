@@ -1,3 +1,4 @@
+package black.red.Futures.examples.example002;
 import java.util.concurrent.*;
 
 public class FutureWithTimeout {

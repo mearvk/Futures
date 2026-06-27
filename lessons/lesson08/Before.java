@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson08;
 // BEFORE: Ignoring exception type, generic catch-all
 import java.util.concurrent.*;
 

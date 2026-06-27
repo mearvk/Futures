@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson06;
 // AFTER: Scoped executor with try-finally for guaranteed cleanup
 import java.util.concurrent.*;
 

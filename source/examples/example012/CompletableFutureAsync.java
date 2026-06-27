@@ -1,3 +1,4 @@
+package examples.example012;
 import java.util.concurrent.*;
 
 public class CompletableFutureAsync {

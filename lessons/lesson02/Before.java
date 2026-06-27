@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson02;
 // BEFORE: Try-catch with generic exception, no recovery
 import java.util.concurrent.*;
 

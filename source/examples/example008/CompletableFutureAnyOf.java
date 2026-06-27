@@ -1,3 +1,4 @@
+package examples.example008;
 import java.util.concurrent.*;
 
 public class CompletableFutureAnyOf {

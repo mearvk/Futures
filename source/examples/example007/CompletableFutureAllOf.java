@@ -1,3 +1,4 @@
+package examples.example007;
 import java.util.concurrent.*;
 import java.util.stream.*;
 import java.util.*;

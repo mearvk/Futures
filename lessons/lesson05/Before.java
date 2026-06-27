@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson05;
 // BEFORE: Inline lambda with complex logic — unreadable
 import java.util.concurrent.*;
 

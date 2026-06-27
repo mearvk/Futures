@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson02;
 // AFTER: Declarative error recovery with exceptionally()
 import java.util.concurrent.*;
 

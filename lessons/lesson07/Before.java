@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson07;
 // BEFORE: Polling isDone() in a busy loop
 import java.util.concurrent.*;
 

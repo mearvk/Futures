@@ -1,3 +1,4 @@
+package democratic.d500;
 // Democratic Principle: Due Process — orderly pipeline, each stage completes before next
 import java.util.concurrent.*;
 

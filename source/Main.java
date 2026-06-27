@@ -1,3 +1,4 @@
+package black.red.Futures;
 import ai.server.DemocraticAIServer;
 
 /**

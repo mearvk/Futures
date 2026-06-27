@@ -1,3 +1,5 @@
+package black.red.Futures.source.examples.example005;
+
 import java.util.concurrent.*;
 
 public class CompletableFutureChaining {

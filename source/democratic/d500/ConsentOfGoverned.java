@@ -1,3 +1,4 @@
+package democratic.d500;
 // Democratic Principle: Consent of the Governed — anyOf = the people decide direction
 import java.util.concurrent.*;
 

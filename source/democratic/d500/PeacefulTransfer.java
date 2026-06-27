@@ -1,3 +1,4 @@
+package democratic.d500;
 // Democratic Principle: Peaceful Transfer of Power — orderly shutdown and handoff
 import java.util.concurrent.*;
 

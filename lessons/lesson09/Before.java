@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson09;
 // BEFORE: Raw types, no generics — unclear what the future holds
 import java.util.concurrent.*;
 

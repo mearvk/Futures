@@ -1,3 +1,4 @@
+package black.red.Futures.lessons.lesson01;
 // BEFORE: Nested callbacks, hard to read
 import java.util.concurrent.*;
 

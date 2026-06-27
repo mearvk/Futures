@@ -1,3 +1,4 @@
+package black.red.Futures.democratic.d500;
 // Democratic Principle: Free Speech — all voices processed without suppression
 import java.util.concurrent.*;
 import java.util.stream.*;
