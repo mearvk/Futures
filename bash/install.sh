@@ -1,5 +1,9 @@
 #!/bin/bash
 # ============================================================
+
+# Detect MySQL location
+_NWE_ROOT="$(cd "$(dirname "$0")/../../../.." 2>/dev/null && pwd)"
+[ -f "$_NWE_ROOT/scripts/detect-mysql.sh" ] && source "$_NWE_ROOT/scripts/detect-mysql.sh"
 # INSTALL SCRIPT — Democratic ProFront National 1.0
 # Installer ID: MEARVK LLC - Max Rupplin
 # D500 Democratic President
