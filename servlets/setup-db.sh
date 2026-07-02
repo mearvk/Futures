@@ -1,6 +1,6 @@
 #!/bin/bash
 # Futures™ — Setup MySQL Database
-# Usage: bash modules/black/red/Futures/servlets/setup-db.sh
+# Usage: bash modules/Futures/servlets/setup-db.sh
 set -e
 
 DB_USER="root"
